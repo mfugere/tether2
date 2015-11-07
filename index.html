@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Phaser 2</title>
+	<script src="lib/phaser.js"></script>
+	<script src="js/preload.js"></script>
+	<script src="js/level1.js"></script>
+	<script>
+		(function () {
+			var game = new Phaser.Game(640, 480, Phaser.AUTO, "tether2");
+			game.state.add("Preload", preload);
+			game.state.add("Level1", level1);
+			game.state.start("Preload");
+		}) ();
+	</script>
+</head>
+<body>
+</body>
+</html>
