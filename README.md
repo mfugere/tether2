@@ -6,7 +6,7 @@ Release 1 Stories
 -----------------
 - [x] Basic game with 4-way movement
 - [x] Player 1 sprite/animations
-- [ ] Basic level with tiles
+- [x] Basic level with tiles
 - [ ] Blocks, locks, and holes
 - [ ] Player 2 sprite/animations
 - [ ] Two players with separate keyboard actions
