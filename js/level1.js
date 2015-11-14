@@ -54,6 +54,7 @@ level1.prototype = {
 		physics.collide(blocks, layer);
 		physics.collide(blocks, locks);
 		physics.overlap(blocks, holes, fillHole, null, this);
+		if (this.lockId) locks.forEachAlive(breakLock, this);
 		physics.collide(player1, locks);
 		physics.collide(player1, holes);
 		if (keys.left.isDown) {
@@ -82,6 +83,13 @@ var moveBlock = function (obj1, obj2) {
 
 var fillHole = function (block, hole) {
 	if (this.physics.arcade.distanceBetween(block, hole) < 8) {
+		this.lockId = hole.lockId;
 		block.kill();
+	}
+};
+
+var breakLock = function (lock) {
+	if (lock.lockId === this.lockId) {
+		lock.kill();
 	}
 };

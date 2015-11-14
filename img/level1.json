@@ -40,7 +40,7 @@
                  "name":"",
                  "properties":
                     {
-
+                     "lockId":"7"
                     },
                  "rotation":0,
                  "type":"",
@@ -56,7 +56,7 @@
                  "name":"",
                  "properties":
                     {
-
+                     "lockId":"7"
                     },
                  "rotation":0,
                  "type":"",
@@ -64,6 +64,54 @@
                  "width":32,
                  "x":96,
                  "y":384
+                }, 
+                {
+                 "gid":2,
+                 "height":32,
+                 "id":8,
+                 "name":"",
+                 "properties":
+                    {
+                     "lockId":"9"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":320,
+                 "y":384
+                }, 
+                {
+                 "gid":3,
+                 "height":32,
+                 "id":9,
+                 "name":"",
+                 "properties":
+                    {
+                     "lockId":"9"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":320,
+                 "y":128
+                }, 
+                {
+                 "gid":1,
+                 "height":32,
+                 "id":10,
+                 "name":"",
+                 "properties":
+                    {
+
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":512,
+                 "y":192
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -72,7 +120,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":8,
+ "nextobjectid":12,
  "orientation":"orthogonal",
  "properties":
     {
