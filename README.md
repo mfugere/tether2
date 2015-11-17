@@ -9,7 +9,7 @@ Release 1 Stories
 - [x] Basic level with tiles
 - [x] Blocks, locks, and holes
 - [ ] Player 2 sprite/animations
-- [ ] Two players with separate keyboard actions
+- [x] Two players with separate keyboard actions
 - [ ] Aura
 - [ ] Full level with victory conditions
 - [ ] Main theme music
