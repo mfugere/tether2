@@ -12,6 +12,11 @@ preload.prototype = {
     	this.load.image("walls", "img/wall.png");
 	},
 	create: function () {
+		this.game.keys = this.game.input.keyboard.createCursorKeys();
+		this.game.keys.w = this.game.input.keyboard.addKey(Phaser.KeyCode["W"]);
+		this.game.keys.a = this.game.input.keyboard.addKey(Phaser.KeyCode["A"]);
+		this.game.keys.s = this.game.input.keyboard.addKey(Phaser.KeyCode["S"]);
+		this.game.keys.d = this.game.input.keyboard.addKey(Phaser.KeyCode["D"]);
 		this.game.state.start("Level1");
 	}
 };
