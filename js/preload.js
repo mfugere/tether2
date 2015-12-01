@@ -10,6 +10,7 @@ preload.prototype = {
     	this.load.image("holes", "img/hole.png");
     	this.load.image("locks", "img/lock.png");
     	this.load.image("walls", "img/wall.png");
+    	this.load.image("aura", "img/aura.png");
 	},
 	create: function () {
 		this.game.keys = this.game.input.keyboard.createCursorKeys();
