@@ -10,7 +10,7 @@ Release 1 Stories
 - [x] Blocks, locks, and holes
 - [ ] Player 2 sprite/animations
 - [x] Two players with separate keyboard actions
-- [ ] Aura
+- [x] Aura
 - [ ] Full level with victory conditions
 - [ ] Main theme music
 - [ ] Main menu

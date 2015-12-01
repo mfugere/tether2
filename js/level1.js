@@ -53,6 +53,8 @@ level1.prototype = {
 
 		player[0].aura = generateAura(this, player[0], 1);
 		player[1].aura = generateAura(this, player[1], -1);
+		player[0].bounds = player[1].aura;
+		player[1].bounds = player[0].aura;
 		this.world.bringToTop(players);
 	},
 	update: function () {
@@ -112,25 +114,26 @@ var generateAura = function (ctx, player, orientation) {
 
 var movePlayer = function (ctx, player, x, y) {
 	var dest = new Phaser.Point(player.position.x + (x * 32), player.position.y + (y * 32));
-	var objAtDest = getNextSpace(ctx.world, dest);
-	console.log(objAtDest);
 	var blocked = true;
-	if (objAtDest === "free" || objAtDest === "aura") blocked = false;
-	else if (objAtDest === "blocks") {
-		var block = objectAtPoint(ctx.world["blocks"], dest);
-		var bDest = new Phaser.Point(block.position.x + (x * 32), block.position.y + (y * 32));
-		var bObjAtDest = getNextSpace(ctx.world, bDest);
-		if (bObjAtDest === "free" || bObjAtDest === "holes") {
-			blocked = false;
-			ctx.add.tween(block).to({ x: bDest.x, y: bDest.y }, 750, Phaser.Easing.Linear.None, true).onComplete.add(function () {
-				block.position = bDest;
-				if (bObjAtDest === "holes") {
-					var holes = ctx.world["holes"];
-					holes.forEach(function (child) {
-						if (bDest.x === child.position.x && bDest.y === child.position.y) fillHole(ctx, block, child);
-					}, this);
-				}
-			}, this);
+	if (objectAtPoint(player.bounds, dest)) {
+		var objAtDest = getNextSpace(ctx.world, dest);
+		if (objAtDest === "free") blocked = false;
+		else if (objAtDest === "blocks") {
+			var block = objectAtPoint(ctx.world["blocks"], dest);
+			var bDest = new Phaser.Point(block.position.x + (x * 32), block.position.y + (y * 32));
+			var bObjAtDest = getNextSpace(ctx.world, bDest);
+			if (bObjAtDest === "free" || bObjAtDest === "holes") {
+				blocked = false;
+				ctx.add.tween(block).to({ x: bDest.x, y: bDest.y }, 750, Phaser.Easing.Linear.None, true).onComplete.add(function () {
+					block.position = bDest;
+					if (bObjAtDest === "holes") {
+						var holes = ctx.world["holes"];
+						holes.forEach(function (child) {
+							if (bDest.x === child.position.x && bDest.y === child.position.y) fillHole(ctx, block, child);
+						}, this);
+					}
+				}, this);
+			}
 		}
 	}
 	if (!blocked) {
@@ -153,7 +156,7 @@ var getNextSpace = function (world, point) {
 		if (!groups[i].key) {
 			if (groups[i].name === "group") {
 				var obj = objectAtPoint(groups[i], point);
-				if (obj) return obj.key;
+				if (obj && obj.key !== "aura") return obj.key;
 			} else {
 				if (tileAtPoint(groups[i], point)) return "tiles";
 			}
