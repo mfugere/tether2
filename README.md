@@ -8,7 +8,7 @@ Release 1 Stories
 - [x] Player 1 sprite/animations
 - [x] Basic level with tiles
 - [x] Blocks, locks, and holes
-- [ ] Player 2 sprite/animations
+- [x] Player 2 sprite/animations
 - [x] Two players with separate keyboard actions
 - [x] Aura
 - [ ] Full level with victory conditions
